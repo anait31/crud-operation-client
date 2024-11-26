@@ -11,7 +11,7 @@ const AddUser = () => {
         const user = { name, email, country };
         console.log(user);
 
-        fetch('http://localhost:5000/addUsers', {
+        fetch('http://localhost:5000/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

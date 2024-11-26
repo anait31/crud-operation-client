@@ -1,10 +1,11 @@
 
-import { Link } from 'react-router-dom'
+import { Link, useLoaderData } from 'react-router-dom'
 import './App.css'
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
 function App() {
+  const users = useLoaderData();
 
   return (
     <>
@@ -26,14 +27,15 @@ function App() {
               </thead>
               <tbody>
                 {/* row 1 */}
-                <tr>
-                  <th>1</th>
-                  <td>Cy Ganderton</td>
-                  <td>Quality Control Specialist</td>
-                  <td>Blue</td>
+                {
+                  users.map(user => <tr key={user._id}>
+                  <th>0{users.indexOf(user)+1}</th>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.country}</td>
                   <td><Link><button className='text-blue-400 ml-2'><FaEdit></FaEdit></button></Link></td>
                   <td><button className='text-blue-400 ml-4'><MdDelete></MdDelete></button></td>
-                </tr>
+                </tr>)}
               </tbody>
             </table>
           </div>

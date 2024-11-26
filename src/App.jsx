@@ -47,11 +47,11 @@ function App() {
                 {/* row 1 */}
                 {
                   users.map(user => <tr key={user._id}>
-                    <th>0{users.indexOf(user) + 1}</th>
+                    <th className='font-normal'>0{users.indexOf(user) + 1}</th>
                     <td>{user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.country}</td>
-                    <td><Link><button className='text-blue-400 ml-2'><FaEdit></FaEdit></button></Link></td>
+                    <td><Link to={`/updateUsers/${user._id}`}><button className='text-blue-400 ml-2'><FaEdit></FaEdit></button></Link></td>
                     <td><button onClick={() => handleDelete(user._id)} className='text-blue-400 ml-4'><MdDelete></MdDelete></button></td>
                   </tr>)}
               </tbody>
